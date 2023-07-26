@@ -33,4 +33,11 @@ public class BookDAOJpaImpl implements BookDAO{
         //return result
         return books;
     }
+
+    @Override
+    public Book findById(int id) {
+        //find the book by given ID
+        Book book = entityManager.find(Book.class,id);
+        return book;
+    }
 }

@@ -20,4 +20,9 @@ import java.util.List;
     public List<Book> findAll() {
         return bookDAO.findAll();
     }
+
+    @Override
+    public Book findById(int id) {
+        return bookDAO.findById(id);
+    }
 }
