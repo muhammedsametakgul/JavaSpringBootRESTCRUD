@@ -52,4 +52,11 @@ public class BookRestController {
     }
 
 
+    //update existing book
+    @PutMapping("/books")
+    public Book updateBook(@RequestBody Book theBook){
+        Book book= bookService.save(theBook);
+        return book;
+    }
+
 }
