@@ -59,4 +59,17 @@ public class BookRestController {
         return book;
     }
 
+
+    //delete the book
+    @DeleteMapping("/books/{bookId}")
+    public String deleteBook(@PathVariable int bookId){
+        Book book = bookService.findById(bookId);
+
+        if(book==null){
+            throw new RuntimeException("Id book not found - " +bookId);
+        }
+
+        bookService.deleteById(bookId);
+        return "Deleted Successfull";
+    }
 }

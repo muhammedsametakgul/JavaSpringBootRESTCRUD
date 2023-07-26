@@ -12,4 +12,7 @@ public interface BookService {
     Book findById(int id);
 
     Book save(Book theBook);
+
+    void deleteById(int id);
+
 }

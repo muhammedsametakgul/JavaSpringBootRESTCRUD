@@ -32,4 +32,10 @@ import java.util.List;
     public Book save(Book theBook) {
         return bookDAO.save(theBook);
     }
+
+    @Override
+    @Transactional
+    public void deleteById(int id) {
+        bookDAO.deleteById(id);
+    }
 }

@@ -14,4 +14,6 @@ public interface BookDAO {
     Book findById(int id);
 
     Book save(Book theBook);
+
+    void deleteById(int id);
 }
