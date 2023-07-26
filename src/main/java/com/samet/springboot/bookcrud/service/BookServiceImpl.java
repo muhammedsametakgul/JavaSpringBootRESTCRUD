@@ -4,6 +4,7 @@ import com.samet.springboot.bookcrud.dao.BookDAO;
 import com.samet.springboot.bookcrud.entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -24,5 +25,11 @@ import java.util.List;
     @Override
     public Book findById(int id) {
         return bookDAO.findById(id);
+    }
+
+    @Override
+    @Transactional
+    public Book save(Book theBook) {
+        return bookDAO.save(theBook);
     }
 }

@@ -4,10 +4,7 @@ package com.samet.springboot.bookcrud.rest;
 import com.samet.springboot.bookcrud.entity.Book;
 import com.samet.springboot.bookcrud.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -40,6 +37,18 @@ public class BookRestController {
             throw new RuntimeException("Book Id not found - "+bookId);
         }
         return book;
+    }
+
+
+    //Save any book
+    @PostMapping("/books")
+    public Book addBook(@RequestBody Book theBook){
+        theBook.setId(0); // if id ==0 , it is save/insert
+
+        Book book = bookService.save(theBook);
+
+
+        return  book;
     }
 
 

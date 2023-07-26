@@ -40,4 +40,12 @@ public class BookDAOJpaImpl implements BookDAO{
         Book book = entityManager.find(Book.class,id);
         return book;
     }
+
+    @Override
+    public Book save(Book theBook) {
+
+        Book book =entityManager.merge(theBook);
+
+        return book;
+    }
 }
